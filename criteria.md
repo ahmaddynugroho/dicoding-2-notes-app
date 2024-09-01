@@ -1,7 +1,7 @@
 # Mandatory
 
 1. lanjutkan notes app sebelumnya [done]
-2. use restful api
+2. use restful api [done]
 
 - docs: https://notes-api.dicoding.dev/v2#/
 - create, read, delete
@@ -28,6 +28,6 @@
 - setup prettier [done]
 - read note [done]
 - create note [done]
-- delete note
+- delete note [done]
 - add spinner
 - test build

@@ -49,6 +49,7 @@ customElements.define(
             "date",
           )}"></note-date>
           <note-body value="${this.getAttribute("body")}"></note-body>
+          <button id="${this.getAttribute("id")}" class="w-full bg-slate-800 px-4 mt-4">Delete this</button>
         </div>
       `;
     }
@@ -65,9 +66,25 @@ const render = () => {
   notesContainer.innerHTML = "";
   notesData.forEach((note) => {
     notesContainer.innerHTML += /*html*/ `
-    <note-card title="${note.title}" date="${note.createdAt}" body="${note.body}"></note-card>
+    <note-card
+      title="${note.title}"
+      date="${note.createdAt}"
+      body="${note.body}"
+      id="${note.id}"
+    ></note-card>
   `;
   });
+  notesData.forEach((note) => {
+    document
+      .querySelector(`button#${note.id}`)
+      .addEventListener("click", () => deleteNote(note.id));
+  });
+};
+
+const deleteNote = (id) => {
+  fetch(api + `/${id}`, {
+    method: "DELETE",
+  }).then((_) => fetchNotes());
 };
 
 const fetchNotes = () => {
@@ -98,7 +115,6 @@ form.onsubmit = (e) => {
   title.value = "";
   body.value = "";
 
-  console.debug(notesData);
   render();
 };
 
