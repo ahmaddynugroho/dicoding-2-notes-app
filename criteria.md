@@ -8,8 +8,8 @@
 
 3. use webpack as bundler [done]
 
-- `npm run start-dev` must use `webpack-dev-server`
-- `npm run build` must exist
+- `npm run start-dev` must use `webpack-dev-server` [done]
+- `npm run build` must exist [done]
 
 4. use `fetch()` [done]
 5. has loading indicator (spinner)(web component allowed) [done]
@@ -19,7 +19,7 @@
 1. archived note feature
 2. feedback when error
 3. animation
-4. use prettier
+4. use prettier [done]
 
 # Todo
 
@@ -30,4 +30,4 @@
 - create note [done]
 - delete note [done]
 - add spinner [done]
-- test build
+- test build [done]
