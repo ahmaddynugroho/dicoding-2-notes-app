@@ -55,7 +55,10 @@ customElements.define(
   },
 );
 
+const api = "https://notes-api.dicoding.dev/v2/notes";
 const notesContainer = document.querySelector("#notes");
+const form = document.querySelector("#add-note");
+
 let notesData = [];
 
 const render = () => {
@@ -67,18 +70,31 @@ const render = () => {
   });
 };
 
-const form = document.querySelector("#add-note");
+const fetchNotes = () => {
+  fetch(api)
+    .then((res) => res.json())
+    .then(({ data }) => {
+      notesData = data;
+      render();
+    });
+};
+
 form.onsubmit = (e) => {
   e.preventDefault();
   const title = document.querySelector("#add-title");
   const body = document.querySelector("#add-body");
-  notesData.push({
-    id: String(Date.now()),
+  const note = {
     title: title.value,
     body: body.value,
-    createdAt: new Date().toISOString(),
-    archived: false,
-  });
+  };
+  fetch(api, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(note),
+  }).then((_) => fetchNotes());
+
   title.value = "";
   body.value = "";
 
@@ -86,9 +102,4 @@ form.onsubmit = (e) => {
   render();
 };
 
-fetch("https://notes-api.dicoding.dev/v2/notes")
-  .then((res) => res.json())
-  .then(({ data }) => {
-    notesData = data;
-    render();
-  });
+fetchNotes();

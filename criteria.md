@@ -1,17 +1,17 @@
 # Mandatory
 
-1. lanjutkan notes app sebelumnya
+1. lanjutkan notes app sebelumnya [done]
 2. use restful api
 
 - docs: https://notes-api.dicoding.dev/v2#/
 - create, read, delete
 
-3. use webpack as bundler
+3. use webpack as bundler [done]
 
 - `npm run start-dev` must use `webpack-dev-server`
 - `npm run build` must exist
 
-4. use `fetch()`
+4. use `fetch()` [done]
 5. has loading indicator (spinner)(web component allowed)
 
 # Optional
@@ -27,7 +27,7 @@
 - setup run script [done]
 - setup prettier [done]
 - read note [done]
-- create note
+- create note [done]
 - delete note
 - add spinner
 - test build
