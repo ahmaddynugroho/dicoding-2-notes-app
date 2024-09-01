@@ -23,10 +23,11 @@
 
 # Todo
 
-- setup webpack
-- setup run script
-- setup prettier
-- read note
+- setup webpack [done]
+- setup run script [done]
+- setup prettier [done]
+- read note [done]
 - create note
 - delete note
+- add spinner
 - test build

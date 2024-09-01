@@ -1,5 +1,3 @@
-import { notesData } from "./notes.js";
-
 customElements.define(
   "note-title",
   class extends HTMLElement {
@@ -58,6 +56,8 @@ customElements.define(
 );
 
 const notesContainer = document.querySelector("#notes");
+let notesData = [];
+
 const render = () => {
   notesContainer.innerHTML = "";
   notesData.forEach((note) => {
@@ -66,7 +66,6 @@ const render = () => {
   `;
   });
 };
-render();
 
 const form = document.querySelector("#add-note");
 form.onsubmit = (e) => {
@@ -86,3 +85,10 @@ form.onsubmit = (e) => {
   console.debug(notesData);
   render();
 };
+
+fetch("https://notes-api.dicoding.dev/v2/notes")
+  .then((res) => res.json())
+  .then(({ data }) => {
+    notesData = data;
+    render();
+  });
