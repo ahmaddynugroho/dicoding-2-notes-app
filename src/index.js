@@ -40,7 +40,7 @@ customElements.define(
     connectedCallback() {
       const date = this.getAttribute("value").slice(0, 19).replace("T", " ");
       this.innerHTML = /*html*/ `
-        <p class="text-xs text-slate-400 ${this.getAttribute("class")}">
+        <p class="text-xs opacity-50 ${this.getAttribute("class")}">
           ${date}
         </p>
       `;
