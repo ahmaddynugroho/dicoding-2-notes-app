@@ -1,26 +1,5 @@
 import { notesData } from "./notes.js";
 
-/**
- * kriteria wajib:
- * 1. menampilkan daftar catatan dengan baik
- * 2. formulir tambah catatan
- * - judul dan isi
- * - isi menggunakan <textarea>
- * 3. css grid sebagai metode layouting
- * 4. bangun component ui dengan web component
- *  - minimal 3 custom element
- *
- * TODO:
- * 1. show notes [done]
- * 2. add notes [done]
- *
- * component:
- * 1. note's title [done]
- * 2. note's body [done]
- * 3. note's date [done]
- * 4. note's container [done]
- */
-
 customElements.define(
   "note-title",
   class extends HTMLElement {
@@ -31,7 +10,7 @@ customElements.define(
         </p>
       `;
     }
-  }
+  },
 );
 
 customElements.define(
@@ -45,7 +24,7 @@ customElements.define(
         </p>
       `;
     }
-  }
+  },
 );
 
 customElements.define(
@@ -58,7 +37,7 @@ customElements.define(
         </p>
       `;
     }
-  }
+  },
 );
 
 customElements.define(
@@ -69,13 +48,13 @@ customElements.define(
         <div class="p-4 h-full rounded-lg bg-slate-900">
           <note-title value="${this.getAttribute("title")}"></note-title>
           <note-date class="mb-2" value="${this.getAttribute(
-            "date"
+            "date",
           )}"></note-date>
           <note-body value="${this.getAttribute("body")}"></note-body>
         </div>
       `;
     }
-  }
+  },
 );
 
 const notesContainer = document.querySelector("#notes");
