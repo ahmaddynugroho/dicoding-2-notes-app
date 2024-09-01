@@ -59,6 +59,7 @@ customElements.define(
 const api = "https://notes-api.dicoding.dev/v2/notes";
 const notesContainer = document.querySelector("#notes");
 const form = document.querySelector("#add-note");
+const status = document.querySelector("#status");
 
 let notesData = [];
 
@@ -82,22 +83,26 @@ const render = () => {
 };
 
 const deleteNote = (id) => {
+  status.style.display = "block";
   fetch(api + `/${id}`, {
     method: "DELETE",
   }).then((_) => fetchNotes());
 };
 
 const fetchNotes = () => {
+  status.style.display = "block";
   fetch(api)
     .then((res) => res.json())
     .then(({ data }) => {
       notesData = data;
+      status.style.display = "none";
       render();
     });
 };
 
 form.onsubmit = (e) => {
   e.preventDefault();
+  status.style.display = "block";
   const title = document.querySelector("#add-title");
   const body = document.querySelector("#add-body");
   const note = {

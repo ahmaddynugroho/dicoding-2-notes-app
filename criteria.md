@@ -12,7 +12,7 @@
 - `npm run build` must exist
 
 4. use `fetch()` [done]
-5. has loading indicator (spinner)(web component allowed)
+5. has loading indicator (spinner)(web component allowed) [done]
 
 # Optional
 
@@ -29,5 +29,5 @@
 - read note [done]
 - create note [done]
 - delete note [done]
-- add spinner
+- add spinner [done]
 - test build
